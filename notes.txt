@@ -1,0 +1,79 @@
+Built a RESTful API using Node.js and Express
+
+Used Express Router to define endpoints and keep routing modular
+
+Implemented CRUD operations for tasks:
+
+POST /tasks – create
+
+GET /tasks – read all
+
+GET /tasks/:id – read by id
+
+PUT /tasks/:id – update
+
+DELETE /tasks/:id – delete
+
+Data model includes:
+
+id (UUID v4 for global uniqueness)
+
+title (required)
+
+description (optional)
+
+status (pending | in-progress | completed)
+
+createdAt (ISO timestamp)
+
+Used in-memory storage (array) managed in the service layer
+
+Applied async/await everywhere to follow non-blocking I/O patterns
+
+Implemented input validation:
+
+Title must be present and non-empty
+
+Status must be from an allowed enum
+
+Centralized business logic in services (no logic in routes)
+
+Controllers handle only HTTP concerns (req → service → res)
+
+Added centralized error-handling middleware:
+
+Converts thrown errors into consistent JSON responses
+
+Maps errors to correct HTTP status codes (400, 404, 201, 204, 500)
+
+Used proper REST status codes:
+
+201 Created
+
+200 OK
+
+204 No Content
+
+400 Bad Request
+
+404 Not Found
+
+--------------------
+Create
+curl -X POST http://localhost:3000/api/tasks \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Buy groceries","description":"Milk, eggs","status":"pending"}'
+
+Get all
+curl http://localhost:3000/api/tasks
+
+Get one
+curl http://localhost:3000/api/tasks/66aeb541-904a-4580-b4c4-38a7f113b4ae
+
+Update
+curl -X PUT http://localhost:3000/api/tasks/66aeb541-904a-4580-b4c4-38a7f113b4ae \
+  -H "Content-Type: application/json" \
+  -d '{"status":"completed"}'
+
+Delete
+curl -X DELETE http://localhost:3000/api/tasks/<ID_HERE>
