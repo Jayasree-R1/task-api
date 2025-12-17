@@ -10,7 +10,7 @@ The goal is to show **how a real IVR system (like Amazon Connect or Twilio)** wo
 
 ---
 
-## What This Project Does
+## About the Project and what it does
 
 ### 1. Task Management
 
@@ -76,9 +76,7 @@ All of these are handled through **one IVR endpoint** using intent-based logic.
 
 ---
 
-## Why This Matters
-
-This project demonstrates:
+## This project demonstrates:
 
 - Clean backend design
 - RESTful API development
@@ -87,7 +85,7 @@ This project demonstrates:
 
 ---
 
-## How to Run (Optional)
+## How to Run 
 
 ```bash
 npm install
@@ -96,10 +94,7 @@ npm run dev
 
 http://localhost:3000
 
-Notes
+## Notes
 
-Data is stored in memory and resets on restart
-
-Designed for clarity and interview demonstration
-
-Easily extendable to databases and real IVR system
+- Data is stored in memory and resets on restart
+- Easily extendable to databases and real IVR system
