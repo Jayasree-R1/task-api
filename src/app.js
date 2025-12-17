@@ -9,6 +9,7 @@ app.use(express.json());
 app.get("/health", (req, res) => res.status(200).json({ ok: true }));
 
 app.use("/api", tasksRoutes);
+app.use("/api", require("./routes/ivr.routes"));
 
 // error handler last
 app.use(errorHandler);
